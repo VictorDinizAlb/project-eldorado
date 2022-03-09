@@ -11,28 +11,22 @@ export class DeviceController {
   
   @Get()
   async findAll(): Promise<Device[]> {
-    const repo = getRepository(Category);
-    const firstCategory = await repo.findOne();
-
-    const categoryId = firstCategory.id;
-    return this.deviceService.findByCategory(categoryId);
+    return await this.deviceService.findAll();
   }
 
   @Get('search/:id')
   async findOne(@Param('id') id: number): Promise<Device> {
-    return this.deviceService.findOne(+id);
+    return await this.deviceService.findOne(+id);
   }
   
   @Get(':categoryId')
   async findByCategory(@Param('categoryId') categoryId: number): Promise<Device[]> {
-    
     return await this.deviceService.findByCategory(+categoryId);
   }
 
   @Post()
   async create(@Body(ValidationPipe) createDeviceDto: CreateDeviceDto): Promise<Device[] | boolean> {
-
-    return this.deviceService.create(createDeviceDto);
+    return await this.deviceService.create(createDeviceDto);
   }
 
   // @Patch(':id')
@@ -42,6 +36,6 @@ export class DeviceController {
 
   @Delete('/delete/:id')
   async remove(@Param('id') id: string): Promise<Device[]> {
-    return this.deviceService.remove(+id);
+    return await this.deviceService.remove(+id);
   }
 }

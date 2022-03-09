@@ -1,5 +1,5 @@
-import { Inject, Injectable } from '@nestjs/common';
-import { getCustomRepository, getRepository, Repository } from 'typeorm';
+import { Injectable } from '@nestjs/common';
+import { getRepository } from 'typeorm';
 import { DeviceService } from './device/device.service';
 import { Device } from './device/entities/device.entity';
 

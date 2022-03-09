@@ -9,17 +9,17 @@ export class CategoryController {
   
   @Get()
   public async findWithDevices(): Promise<Category[]> {
-    return this.categoryService.find();
+    return await this.categoryService.find();
   }
 
   @Get('/list')
   public async findAll(): Promise<Category[]> {
-    return this.categoryService.findAll();
+    return await this.categoryService.findAll();
   }
 
   @Post()
   public async create(@Body(ValidationPipe) createCategoryDto: CreateCategoryDto): Promise<Category[]> {
-    return this.categoryService.create(createCategoryDto);
+    return await this.categoryService.create(createCategoryDto);
   }
 
   // @Patch(':id')
@@ -29,6 +29,6 @@ export class CategoryController {
 
   @Delete('/delete/:id')
   public async remove(@Param('id') id: string): Promise<Category[]> {
-    return this.categoryService.remove(+id);
+    return await this.categoryService.remove(+id);
   }
 }
