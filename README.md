@@ -35,8 +35,13 @@ $ npm install
 ## Running the app
 
 ```bash
+
+# database
+$ create a MySQL database named 'db_eldorado' and change src/database/database.provierds.ts to create a connection
+
 # development
-$ npm run start
+$ npm run start 
+This will also create the necessary tables in your database
 
 # watch mode
 $ npm run start:dev
